@@ -5,7 +5,7 @@ const express = require('express')
 const app = express() 
 const connection = require("./connection")
 
-const http = require('http').Server(app);
+const http = require('https').Server(app);
 
 const socketIO = require('socket.io')(http,{
  cors: {
