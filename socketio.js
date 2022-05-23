@@ -1,17 +1,28 @@
 //PORT FOR THE API ENDPOINT________________________
 const { SOCKETIO_PORT,DATABASE } = require('./globals')
 //_________________________________________________
-const express = require('express') 
-const app = express() 
+
 const connection = require("./connection")
 
-const http = require('https').Server(app);
 
-const socketIO = require('socket.io')(http,{
- cors: {
-    origin: '*:*',
- }
-})
+var fs = require('fs');
+var https = require('https');
+
+var express = require('express');
+var app = express();
+
+var options = {
+  key: fs.readFileSync('./file.pem'),
+  cert: fs.readFileSync('./file.crt')
+};
+
+
+var server = https.createServer(options, app);
+var socketIO = require('socket.io')(server);
+
+app.get('/', function(req, res) {
+  res.send("not socket in");
+});
 
 //------------------------------------------------------------------------------------------------------Socket IO Algorithms
 
@@ -166,10 +177,10 @@ socketIO.on('connection', (socket) => {
 })
 
 //Listening to the traffic
-http.listen(SOCKETIO_PORT,(e)=>{
+server.listen(SOCKETIO_PORT, function() {
     console.log("********************************************************");
     console.log("* DB: "+DATABASE()+":3306 DBname:'orientation_db_schema'    *");
     console.log("*                Socket IO : by Shezi                  *");
     console.log("*                      PORT:   "+SOCKETIO_PORT+"                    *");
     console.log("********************************************************");
-})
+  });
