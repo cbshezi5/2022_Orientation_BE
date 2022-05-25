@@ -12,7 +12,8 @@ var express = require('express');
 var app = express();
 
 var options = {
-    cert: fs.readFileSync('./file.cer'),
+    key: fs.readFileSync('./file.pem'),
+    cert: fs.readFileSync('./file.crt'),
     requestCert: false,
     rejectUnauthorized: false
 };
