@@ -12,8 +12,8 @@ var express = require('express');
 var app = express();
 
 var options = {
-  cert: fs.readFileSync('./csr.pem'),
-  key: fs.readFileSync('./keycertif.pem')
+    key: fs.readFileSync('./file.pem'),
+    cert: fs.readFileSync('./file.crt')
 };
 
 
