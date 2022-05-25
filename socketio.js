@@ -20,9 +20,12 @@ var options = {
 var server = https.createServer(options, app);
 var socketIO = require('socket.io')(server);
 
+
 app.get('/', function(req, res) {
   res.send("not socket in");
+  return
 });
+
 
 //------------------------------------------------------------------------------------------------------Socket IO Algorithms
 
