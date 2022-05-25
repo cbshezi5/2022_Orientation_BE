@@ -54,7 +54,7 @@ Router.post('/', (req, res, next) => {
                 res.send({
                     "error": true,
                     "code": "L004",
-                    "message": "Student number doesn't exist on the system",
+                    "message": "Email doesn't exist on the system",
                 })
                 return
             }
