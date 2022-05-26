@@ -25,7 +25,7 @@ const httpPort = 80;
 var httpServer  = http.createServer(app);
 var server = https.createServer(options, app);
 
-var socketIO = require('socket.io')(server,httpServer);
+var socketIO = require('socket.io')(httpServer,server);
 
 
 
