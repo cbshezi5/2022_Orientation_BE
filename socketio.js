@@ -201,5 +201,4 @@ httpServer.listen(U_SOCKETIO_PORT,function(){
     console.log("*                Socket IO : by Shezi                  *");
     console.log("*                      PORT:   "+U_SOCKETIO_PORT+"                    *");
     console.log("********************************************************");
-
 })
