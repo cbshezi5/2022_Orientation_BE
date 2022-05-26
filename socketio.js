@@ -6,6 +6,7 @@ const connection = require("./connection")
 
 
 var fs = require('fs');
+var http = require( "http")
 var https = require('https');
 
 var express = require('express');
@@ -18,9 +19,14 @@ var options = {
     rejectUnauthorized: false
 };
 
+const httpPort = 80;
 
-var server = https.createServer(options,app);
-var socketIO = require('socket.io')(server);
+
+var httpServer  = http.createServer(app);
+var server = https.createServer(options, app);
+
+var socketIO = require('socket.io')(server,httpServer);
+
 
 
 app.get('/', function(req, res) {
@@ -190,4 +196,14 @@ server.listen(SOCKETIO_PORT, function() {
     console.log("*                Socket IO : by Shezi                  *");
     console.log("*                      PORT:   "+SOCKETIO_PORT+"                    *");
     console.log("********************************************************");
-  });
+});
+
+httpServer.listen(httpPort,function(){
+
+    console.log("********************************************************");
+    console.log("* DB: "+DATABASE()+":3306 DBname:'orientation_db_schema'    *");
+    console.log("*                Socket IO : by Shezi                  *");
+    console.log("*                      PORT:   "+httpPort+"                    *");
+    console.log("********************************************************");
+
+})
