@@ -19,7 +19,7 @@ var options = {
 };
 
 
-var server = https.createServer(options, app);
+var server = https.createServer(options,app);
 var socketIO = require('socket.io')(server);
 
 
@@ -27,6 +27,8 @@ app.get('/', function(req, res) {
   res.send("not socket in");
   return
 });
+
+app.use('/.well-known/pki-validation/F230BE2214E1AEAB691A24161B64A38A.txt', express.static('public/F230BE2214E1AEAB691A24161B64A38A.txt'));
 
 
 //------------------------------------------------------------------------------------------------------Socket IO Algorithms
