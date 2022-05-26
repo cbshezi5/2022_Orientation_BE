@@ -24,7 +24,7 @@ var options = {
 var httpServer  = http.createServer(app);
 var server = https.createServer(options, app);
 
-var socketIO = require('socket.io')(server,httpServer);
+var socketIO = require('socket.io')(httpServer,server);
 
 
 app.get('/', function(req, res) {
