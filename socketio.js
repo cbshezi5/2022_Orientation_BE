@@ -1,5 +1,5 @@
 //PORT FOR THE API ENDPOINT________________________
-const { SOCKETIO_PORT,DATABASE } = require('./globals')
+const { SOCKETIO_PORT,DATABASE,U_SOCKETIO_PORT  } = require('./globals')
 //_________________________________________________
 
 const connection = require("./connection")
@@ -19,7 +19,6 @@ var options = {
     rejectUnauthorized: false
 };
 
-const httpPort = 80;
 
 
 var httpServer  = http.createServer(app);
@@ -28,13 +27,10 @@ var server = https.createServer(options, app);
 var socketIO = require('socket.io')(server,httpServer);
 
 
-
 app.get('/', function(req, res) {
   res.send("not socket in");
   return
 });
-
-app.use('/.well-known/pki-validation/F230BE2214E1AEAB691A24161B64A38A.txt', express.static('public/F230BE2214E1AEAB691A24161B64A38A.txt'));
 
 
 //------------------------------------------------------------------------------------------------------Socket IO Algorithms
@@ -198,12 +194,12 @@ server.listen(SOCKETIO_PORT, function() {
     console.log("********************************************************");
 });
 
-httpServer.listen(httpPort,function(){
+httpServer.listen(U_SOCKETIO_PORT,function(){
 
     console.log("********************************************************");
     console.log("* DB: "+DATABASE()+":3306 DBname:'orientation_db_schema'    *");
     console.log("*                Socket IO : by Shezi                  *");
-    console.log("*                      PORT:   "+httpPort+"                    *");
+    console.log("*                      PORT:   "+U_SOCKETIO_PORT+"                    *");
     console.log("********************************************************");
 
 })
