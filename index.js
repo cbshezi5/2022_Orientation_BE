@@ -1,7 +1,7 @@
 var app = require('express')();
-var http = require('http').Server(app);
+var https = require('https').Server(app);
 const cors = require('cors')
-var io = require('socket.io')(http);
+var io = require('socket.io')(https);
 
 
 
@@ -20,6 +20,6 @@ io.on('connection', function(socket){
    });
 });
 var port = process.env.PORT || 5000;
-http.listen(port, function(){
+https.listen(port, function(){
    console.log('listening on *:'+port+'');
 });
