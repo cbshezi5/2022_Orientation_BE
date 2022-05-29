@@ -3,6 +3,8 @@ var http = require('http').Server(app);
 const cors = require('cors')
 var io = require('socket.io')(http);
 
+
+
 app.use(cors())
 
 app.get('/', function(req, res){ res.send("Something");
