@@ -1,7 +1,19 @@
-// importing express
-const express = require('express')
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-// creating a instance of express
-const app = express();
+app.get('/', function(req, res){ res.send("Something");
+});
 
-app.listen(5000, console.log('App Running On Port 5000!'))
+//Whenever someone connects this gets executed
+io.on('connection', function(socket){
+   console.log('A user connected');
+   
+   //Whenever someone disconnects this piece of code executed
+   socket.on('disconnect', function () {
+      console.log('A user disconnected');
+   });
+});
+http.listen(3000, function(){
+   console.log('listening on *:3000');
+});
