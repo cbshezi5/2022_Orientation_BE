@@ -2,9 +2,11 @@
   "name": "backend-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "graph.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start":"nodemon \" graph.js\"",
+    "production":"NODE_ENV=production node --max_old_space_size=300 graph.js",
+    "build":"webpack"
   },
   "author": "",
   "license": "ISC",
