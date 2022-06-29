@@ -1,7 +1,7 @@
 //DB CRDS
 const USERNAME = "admin";
 const PASSWORD = "icep2020"
-const DATABASE_HOSTNAME = "inst-orientation-db.cvqpj5ith2h1.us-east-1.rds.amazonaws.com";
+const DATABASE_HOSTNAME = "db-orientation-inst.cvqpj5ith2h1.us-east-1.rds.amazonaws.com";
 //API PORTS
 const HOSTNAME = "https://app-orientation.herokuapp.com"
 const SOCKETIO_PORT = process.env.PORT || 8000;
