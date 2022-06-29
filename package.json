@@ -2,9 +2,9 @@
   "name": "backend-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "socketio.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node socketio.js"
   },
   "author": "",
   "license": "ISC",
