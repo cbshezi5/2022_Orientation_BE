@@ -1,7 +1,7 @@
 //DB CRDS
 const USERNAME = "admin";
 const PASSWORD = "icep2020"
-const DATABASE_HOSTNAME = "inst-orientation-db.cvqpj5ith2h1.us-east-1.rds.amazonaws.com";
+const DATABASE_HOSTNAME = "db-orientation-inst.cvqpj5ith2h1.us-east-1.rds.amazonaws.com";
 //API PORTS
 const HOSTNAME = "http://ec2-18-234-218-224.compute-1.amazonaws.com"
 const SOCKETIO_PORT = process.env.PORT || 2000;
